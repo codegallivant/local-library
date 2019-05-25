@@ -33,7 +33,7 @@ var loginF2 = function() {
                    register.disabled=false;
                    submit.value="Sign Up";
                } else if (request.status===500) {
-				 
+
                    alert('Something went wrong on the server.(ERROR 500)');
                    register.disabled=false;
                   register.value="Sign Up";
@@ -74,12 +74,12 @@ var registerF = function () {
 				  alert('The username or email given is already in use. Please select another.');
 				  register.value = 'Sign Up';
                   register.disabled=false;
-			  
+
               } else if(request.status===500) {
                   alert('The username or email given is already in use. Please select another.');
 				  register.value = 'Sign Up';
                   register.disabled=false;
-				  
+
                   register.value = 'Sign Up';
                   register.disabled=false;
               }
@@ -89,16 +89,15 @@ var registerF = function () {
 			  }
           }
         };
-		
-        var username=document.getElementById('username').value;
+
+        var username=document.getElementById('register_username').value;
 	console.log(username);
-        var password = document.getElementById('password').value;
+        var password = document.getElementById('register_password').value;
 	console.log(password);
 		var email = document.getElementById('email').value;
 	console.log(email);
         request.open('POST', '/create-user', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password, email: email}));
-        
-    };
 
+    };

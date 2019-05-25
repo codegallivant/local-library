@@ -44,12 +44,9 @@ var loginF1 = function () {
             }
         };
 
-        var username=document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+        var username=document.getElementById('login_username').value;
+        var password = document.getElementById('login_password').value;
         request.open('POST', '/login', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password}));
     };
-
-
-	

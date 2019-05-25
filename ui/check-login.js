@@ -19,7 +19,7 @@ function hideButton() {
 	var parentButton2 = document.getElementById('AdvSidebarButton2');
 	   	parentButton1.style.display="block";
     parentButton2.style.display="none";
-	
+
 }
 function loadLoggedInUser(login, username, password, email) {
     var parentButton1 = document.getElementById('AdvSidebarButton');
@@ -32,7 +32,7 @@ function loadLoggedInUser(login, username, password, email) {
 		<form>
 		<P>
 		Username:
-		<input type="text" id='username' value='${username}' class = 'cred' disabled>
+		<input type="text" class='username' value='${username}' class = 'cred' disabled>
 		<br><br>
 		Password:
 		<input type="email" id='email' value='${email}' class = 'cred' disabled>
@@ -42,7 +42,7 @@ function loadLoggedInUser(login, username, password, email) {
 		</form>
 	<br><br><br>
         <a href="/logout"><button>Logout</button></a>
-        
+
         <a href="/delete-account"><button>Delete Account</button></a>
 		<script src='/ui/update_cred.js'></script>
     `;
@@ -65,7 +65,7 @@ function loadLogin () {
             }
         }
     };
-    
+
     request.open('POST', '/check-login', true);
 	request.send(null);
 }

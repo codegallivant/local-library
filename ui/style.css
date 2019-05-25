@@ -6,6 +6,37 @@
   src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v14/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('svg');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
+
+.full-size {
+	height: 100vh;
+}
+.QH-size {
+	height: 68vh;
+	overflow: visible;
+}
+#area1 {
+	color: firebrick;
+	background-image: url("http://i.huffpost.com/gen/1371009/thumbs/o-AFRICAN-AMERICAN-READING-A-BOOK-facebook.jpg");
+	background-color: #bb8355;
+}
+#area2 {
+	color: firebrick;
+	background-image: url("https://wallpaper-house.com/data/out/8/wallpaper2you_240242.jpg");
+	background-color: #bb8355;
+}
+#area3 {
+	color: firebrick;
+	background-image: url("http://www.printawallpaper.com/upload/designs/college_books_detail.jpg");
+}
+#area4 {
+	color: firebrick;
+	background-image: url("https://thumbs.dreamstime.com/z/people-taking-reading-books-library-set-illustrations-people-taking-reading-books-library-set-illustrations-124160862.jpg");
+}
+#area5 {
+  color: firebrick;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI2vmFbBNmoIwnUacxRuJmSB2raTCG5R_8B6sNaCptAEnR29sZmA");
+}
+
 .HomeSection {
   background: cover;
   background-color: darkorange;
@@ -109,11 +140,8 @@
 	background: #994015;
 }
 .sidebar {
-
-	background: url("https://n6-img-fp.akamaized.net/free-vector/shelves-with-books_23-2147506662.jpg?size=338&ext=jpg");
 	height: 100%;
 	width: 20%;
-	position:fixed;
 	z-index: 1;
 	top: 15%;
 }
@@ -176,7 +204,6 @@ body{
 	background: #ffb28c;
 }
 .container{
-    overflow: auto;
 	margin-top: 5%;
 	margin-left: 21%;
 	margin-right: 21%;
@@ -206,7 +233,7 @@ button:active, input[type=submit]:active {
     color: white;
     border-bottom: 3px black groove;
 }
-#username, #password, #email{
+.username, .password, #email{
     padding:5px;
     border:2px solid #ccc;
     -webkit-border-radius: 5px;
@@ -216,7 +243,7 @@ button:active, input[type=submit]:active {
     font-size: 20px;
 	font-family: monospace;
 }
-#username:invalid, #password:invalid, #email:invalid {
+.username:invalid, .password:invalid, #email:invalid {
 	    padding:5px;
     border:2px solid red;
     -webkit-border-radius: 5px;
@@ -254,20 +281,27 @@ font-family: monospace;
 .ProgramHead{
     text-align: center !important;
 }
+#titlecard {
+background-color:#5D2A1E;
+}
 #titlebar{
-	height: 15%;
-	width: 99.9%;
-	color: white;
+	height:100vh;
+	overflow: auto;
+
+	color: orange;
 	opacity: 0.8;
-	background-color: #994015;
+	background-image:url("https://ae01.alicdn.com/kf/HTB1B3InJpXXXXcKXpXXq6xXFXXX5/3D.jpg");
+	/*background-color: #994015;
 	position: fixed;
 	border: 1px solid gray;
 	border-radius: 5px;
+
 		position: absolute;
 	left: 0px;
 	right: 0px;
 	top: 0px;
 	display: inline-block;
+	*/
 }
 #ProfileB{
   position: absolute;
@@ -377,7 +411,7 @@ padding-top: 15px;
 transition-duration: 1s;
 border-bottom: 5px solid white;
 }
-#username{
+.username{
 font-size: 20px;
 font-family: monospace;
 }

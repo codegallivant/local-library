@@ -3,7 +3,7 @@ function hideButton() {
 	var parentButton2 = document.getElementById('AdvSidebarButton2');
 	   	parentButton1.style.display="block";
     parentButton2.style.display="none";
-	
+
 }
 function loadLoggedInUser(login, username, password, email) {
     var parentButton1 = document.getElementById('AdvSidebarButton');
@@ -16,7 +16,7 @@ function loadLoggedInUser(login, username, password, email) {
 		<form>
 		<P>
 		Username:
-		<input type="text" id='username' value='${username}' class = 'cred' disabled>
+		<input type="text" class='username' value='${username}' class = 'cred' disabled>
 		<br><br>
 		Password:
 		<input type="email" id='email' value='${email}' class = 'cred' disabled>
@@ -26,7 +26,7 @@ function loadLoggedInUser(login, username, password, email) {
 		</form>
 	<br><br><br>
         <a href="/logout"><button>Logout</button></a>
-        
+
         <a href="/delete-account"><button>Delete Account</button></a>
 		<script src='/ui/update_cred.js'></script>
     `;
@@ -50,7 +50,7 @@ function loadLogin () {
             }
         }
     };
-    
+
     request.open('POST', '/check-login', true);
 	request.send(null);
 }
@@ -66,7 +66,7 @@ var validate=function(type) {
     //Capture the response and store it in a variable
     request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
-              // Take some action 
+              // Take some action
               if (request.status === 200) {
 				  var resp = this.response;
 				  console.log(resp);
@@ -110,18 +110,24 @@ var validate=function(type) {
               }
           }
         };
-		
-        var username=document.getElementById('username').value;
-		console.log(username);
-        var password = document.getElementById('password').value;
-		console.log(password);
+				if(type==="register") {
+        var username=document.getElementById('register_username').value;
+				console.log(username);
+        var password = document.getElementById('register_password').value;
+			}
+			if(type==="login") {
+				var username=document.getElementById('login_username').value;
+				var password = document.getElementById('login_password').value;
+			}
+
 		if(document.getElementById('email')) {
 			var email = document.getElementById('email').value;
 			console.log(email);
 		}
-		if(email) {
-        request.open('GET', '/'+type+'-validate-input?username='+username+'&password='+password+'&email='+email, true); 
-		} else {
+		if(type==="register") {
+        request.open('GET', '/'+type+'-validate-input?username='+username+'&password='+password+'&email='+email, true);
+		}
+		if(type==="login") {
 			request.open('GET', '/'+type+'-validate-input?username='+username+'&password='+password, true);
 		}
 		request.send(null);
