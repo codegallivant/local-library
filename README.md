@@ -30,7 +30,9 @@ This is a library app which can be used at school on a localhost server. The use
 - Put this code in it:
 	```javascript
 	process.env.DATABASE_PASSWORD='<database_password>';
+	process.env.EMAIL_SERVICE='<email_service(Eg: rediffmail)>';
+ 	process.env.EMAIL_AUTH_USER='<email_address>';
+ 	process.env.EMAIL_AUTH_PASS='<email_password>';
 	```
 - Fill each code line with their respective values.
 -You're done!
-
