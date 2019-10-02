@@ -2,7 +2,7 @@
 ## :warning: Bugs need to be fixed. Cannot be used yet.
 <!-- For check mark emoji->  :white_check_mark: -->
 ### Information
-This is a library app which can be used at school on a localhost server. The user interface is meant for a librarian. Do not misunderstand this as a normal online library app.
+This is a library app which can be used at school on a localhost server. The user interface is meant for a librarian, so do not misunderstand this as a normal online library app.
 
 ### Online Imports: 
 - Bootstrap
