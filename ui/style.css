@@ -7,15 +7,12 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
-<<<<<<< HEAD
 html {
 	scroll-behavior: smooth;
 }
 
 body { overflow-y: auto !important;}
 
-=======
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 .full-size {
 	height: 100vh;
 }
@@ -25,31 +22,19 @@ body { overflow-y: auto !important;}
 }
 #area1 {
 	color: firebrick;
-<<<<<<< HEAD
 	background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGlicmFyeXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
-=======
-	background-image: url("http://i.huffpost.com/gen/1371009/thumbs/o-AFRICAN-AMERICAN-READING-A-BOOK-facebook.jpg");
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 	background-color: #bb8355;
 }
 #area2 {
 	color: firebrick;
-<<<<<<< HEAD
 	/*background-image: url("https://wallpaper-house.com/data/out/8/wallpaper2you_240242.jpg");*/
-=======
-	background-image: url("https://wallpaper-house.com/data/out/8/wallpaper2you_240242.jpg");
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 	background-color: #bb8355;
 }
 #area3 {
 	color: firebrick;
-<<<<<<< HEAD
 	/*background-image: url("http://www.printawallpaper.com/upload/designs/college_books_detail.jpg");*/
 		background-image:  url("https://www.oecd-nea.org/upload/docs/image/jpeg/2020-11/book_stack.jpg");
 
-=======
-	background-image: url("http://www.printawallpaper.com/upload/designs/college_books_detail.jpg");
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 }
 #area4 {
 	color: firebrick;
@@ -57,12 +42,8 @@ body { overflow-y: auto !important;}
 }
 #area5 {
   color: firebrick;
-<<<<<<< HEAD
   /*background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI2vmFbBNmoIwnUacxRuJmSB2raTCG5R_8B6sNaCptAEnR29sZmA");*/
   background-image: url("https://www.princeton.edu/sites/default/files/styles/1x_full_2x_half_crop/public/images/2017/05/20170509_FirestoneLibraryPlaza_crop__DJA_009a.jpg?itok=BQ37Mpsi");
-=======
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI2vmFbBNmoIwnUacxRuJmSB2raTCG5R_8B6sNaCptAEnR29sZmA");
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 }
 
 .HomeSection {
@@ -88,14 +69,11 @@ body { overflow-y: auto !important;}
 	font-family: 'Montserrat';
 	font-weight: bold;
 }
-<<<<<<< HEAD
 
 .areaHead {
 	text-align: center;
 }
 
-=======
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 .useBookButtons {
 	height: 20px !important;
 	padding: 15px !important;
@@ -245,11 +223,7 @@ body{
 	margin-right: 21%;
 
 }
-<<<<<<< HEAD
 .customButton {
-=======
-button, input[type=submit]{
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
     background-color: white;
     transition-duration: 0.4s;
     border-radius: 3px;
@@ -261,7 +235,6 @@ button, input[type=submit]{
     border: 1px #0d4e6c solid;
     cursor: pointer;
 }
-<<<<<<< HEAD
 .customButton:hover {
     background-color: #0d4e6c;
     color: white;
@@ -270,25 +243,11 @@ button, input[type=submit]{
     height: 35px;
 }
 .custombutton:active {
-=======
-button:hover, input[type=submit]:hover {
-    background-color: #0d4e6c;
-    color: white;
-}
-input[type=submit] {
-    height: 35px;
-}
-button:active, input[type=submit]:active {
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
     background-color: black;
     color: white;
     border-bottom: 3px black groove;
 }
-<<<<<<< HEAD
 .username, .password, .email{
-=======
-.username, .password, #email{
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
     padding:5px;
     border:2px solid #ccc;
     -webkit-border-radius: 5px;
@@ -298,11 +257,7 @@ button:active, input[type=submit]:active {
     font-size: 20px;
 	font-family: monospace;
 }
-<<<<<<< HEAD
 .username:invalid, .password:invalid, .email:invalid {
-=======
-.username:invalid, .password:invalid, #email:invalid {
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 	    padding:5px;
     border:2px solid red;
     -webkit-border-radius: 5px;
@@ -312,11 +267,7 @@ button:active, input[type=submit]:active {
     font-size: 20px;
 font-family: monospace;
 }
-<<<<<<< HEAD
 #username:focus:valid, #password:focus:valid, .email:focus:valid {
-=======
-#username:focus:valid, #password:focus:valid, #email:focus:valid {
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 	    padding:5px;
     border:2px solid green;
     -webkit-border-radius: 5px;
@@ -353,13 +304,9 @@ background-color:#5D2A1E;
 
 	color: orange;
 	opacity: 0.8;
-<<<<<<< HEAD
 /*	background-image:url("https://ae01.alicdn.com/kf/HTB1B3InJpXXXXcKXpXXq6xXFXXX5/3D.jpg");
 */	
 	background-image: url("https://www.detroitlabs.com/wp-content/uploads/2018/02/alfons-morales-YLSwjSy7stw-unsplash.jpg");
-=======
-	background-image:url("https://ae01.alicdn.com/kf/HTB1B3InJpXXXXcKXpXXq6xXFXXX5/3D.jpg");
->>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
 	/*background-color: #994015;
 	position: fixed;
 	border: 1px solid gray;
