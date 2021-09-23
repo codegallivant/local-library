@@ -1,0 +1,117 @@
+            <div class="full-size" id="area3" style="">
+                <div class="card areaHead" style="color:white; background-color: gray; opacity: 0.8; height:20vh;">
+                    <div class="card-body fadeIn wow">
+                        <h1 style="font-size: 8em;">
+                            <span style="font-family: monospace;">BOOKS</span> 
+                            <button class="btn btn-outline-light" style="width:200px;">Add</button>
+                        </h1>
+                        <br>
+                    </div>
+                </div>
+                <div class="card bg-dark" style=" opacity:0.9;  overflow: auto; height: 80vh;">
+                    <div class="card-body bg-dark">
+                        <table class="table " style="color:white;">
+                            <thead >
+                                <tr>
+                                    <th >Book ID <input type="number" placeholder="Search" id="bookIdBox" style="width:83px;"></th>
+                                    <th>Book Name <input type="text" placeholder="Search" id="bookNameBox"></th>
+                                    <th>Issued</th>
+                                    <th>Total Quantity</th>
+                                    <th>Quantity Left</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="book-display">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <script src="/ui/get-subclasses.js"></script>
+            <script src="/ui/get-books.js"></script>
+            <div class="full-size" id="area5">
+                <div class="card areaHead" style="background-color:gray; color: white; overflow:auto; opacity: 0.888; height:20vh;">
+                    <div class="card-body fadeIn wow">
+                        <h1 style="font-size: 5em; font-family:monospace;">MEMBERS</h1>
+                        <h3>Borrow & Return</h3>
+                    </div>
+                </div>
+                <div class="card bg-light" style="opacity:0.95; height:80vh;">
+                    <div class="card-body" >
+                        <form onsubmit="return false;">
+                            <div class = "row">
+                                <div class = "col-2">
+                                    <hr>
+                                    <p>Search by Member ID:</p>
+                                    <input type="number" placeholder="Member ID" id="idsearchbox">
+                                    <button id="search" class="btn btn-secondary">Search</button>
+                                    <hr>
+                                    <p>Search by Member Name:</p>
+                                    <input type="text" placeholder="Member Name" id="namesearchbox">
+                                    <br>
+                                    <!--<hr>
+                                        <button class="btn btn-secondary" id="recalc">Reload</button>-->
+                                    <hr>
+                                    <button class="btn btn-secondary" id="loadall">Load all members</button>
+                                    <hr>
+                                    <button class="btn btn-secondary" id="clearall">Clear</button>
+                                    <hr>
+                                    <p>Add new member:</p>
+                                    <input type="text" placeholder="Member Name" id="memberaddbox">
+                                    <button id="memberaddbutton" class="btn btn-secondary">Add</button>
+                                    <hr>
+                                </div>
+                        </form>
+                        <div id="MemberInfo" class="col-10" style="overflow: auto; height:70vh"></div>
+                        <script>
+                            document.getElementById("search").addEventListener("click", function(){
+                              document.getElementById("namesearchbox").value = "";
+                              loadMember(document.getElementById("idsearchbox").value);
+                            });
+                            document.getElementById("idsearchbox").addEventListener("input", function() {
+                              document.getElementById("namesearchbox").value = "";
+                            });
+                            document.getElementById("namesearchbox").addEventListener("input", function(){
+                              document.getElementById("idsearchbox").value = "";
+                              loadMember("",document.getElementById("namesearchbox").value);
+                            });
+                            document.getElementById("loadall").addEventListener("click", function() {
+                              loadMember(null,"")
+                            });
+                            document.getElementById("clearall").addEventListener("click", function() {
+                              document.getElementById("MemberInfo").innerHTML="";
+                            });
+                            loadMember(null,"");
+                        </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--             <div class="full-size" id="area6">
+                <div class="card areaHead" style="background-color:gray; color: white; overflow:auto; opacity: 0.888; height:20vh;">
+                    <div class="card-body fadeIn wow">
+                        <h1 style="font-size: 5em; font-family:monospace;">ADDITION</h1>
+                        <h3>Members & Books</h3>
+                    </div>
+                </div>
+                <div class="card bg-light" style="opacity:0.95; height:80vh;">
+                    <div class="card-body" >
+                        <div class="row">
+                            <div class="col">
+                                <form>
+                                    <p>Add new members:</p>
+                                    <textarea></textarea>
+                                </form>
+                            </div>
+                            <div class="col">
+                                <form>
+                                    <p>Add new books:</p>
+                                    <textarea></textarea>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->

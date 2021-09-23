@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/ui/favicon.ico" type="image/png" />
+        <title>Central Library</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/ui/pace/pace-1.0.2/pace.js"></script>
+        <link href="/ui/pace/pace-1.0.2/themes/orange/pace-theme-flash.css" rel="stylesheet" />
+        <script>
+            paceOptions = {
+              ajax: false, // disabled
+              document: false, // disabled
+              eventLag: false, // disabled
+              restartOnRequestAfter: false, // disabled
+              elements: {
+              
+              }
+            };
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script> -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+        <link href="/ui/style.css" rel="stylesheet"/>
+        <script>
+            var newModal = function(title, body, footer, size) {
+                document.getElementById("modalTitle").innerHTML = title;
+                document.getElementById('modalBody').innerHTML = body;
+                document.getElementById('modalFooter').innerHTML = footer;
+                /*Sizes:
+                    <nothing> = normal
+                    sm = small
+                    lg = large
+                    xl = extra large
+                    fullscreen = fullscreen
+                */
+                if(size!=="") {
+                    document.getElementById("modalDialog").className="modal-dialog modal-"+size; 
+                } else {
+                    document.getElementById("modalDialog").className="modal-dialog"; 
+                }
+                var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+                    backdrop: false,
+                    focus: false
+                });
+                return myModal;
+            }
+            var alert = function(content) {
+                newModal("Alert", content, "", "sm").toggle();
+            }
+            $(document).ready(function() {
+                $('body').tooltip({
+                    selector: '[data-toggle="tooltip"], [title]:not([data-toggle="popover"])',
+                    trigger: 'hover',
+                    container: 'body'
+                }).on('click mousedown mouseup', '[data-toggle="tooltip"], [title]:not([data-toggle="popover"])', function () {
+                    $('[data-toggle="tooltip"], [title]:not([data-toggle="popover"])').tooltip('dispose');
+                });
+            });
+        </script>
+        <script src="/ui/login.js"></script>
+    </head>
