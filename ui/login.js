@@ -1,4 +1,5 @@
 function loadLoginForm() {
+<<<<<<< HEAD
         var loginHTML=`
        <h3>Login</h3>
         <form onsubmit="return false;">
@@ -13,20 +14,46 @@ function loadLoginForm() {
         `;
         document.getElementById("login_area").innerHTML=loginHTML;
         document.getElementById('login_area_head').innerHTML = "Librarian Login";
+=======
+    console.log(window.location.href);
+        var loginHTML=`
+            <H3>Profile</h3>
+            <div>
+			<form>
+              <input type="text" id="username" placeholder="Username"/>
+              <input type="password" placeholder="Password" id="password"/>
+              <br>
+              <input type="submit" id="login_btn"/>
+			</form>
+          </div>
+        `;
+>>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
   }
 
 var loginF1 = function () {
     //Create a request object
     var submit=document.getElementById('login_btn');
+<<<<<<< HEAD
     submit.value="Loading...";
     submit.disabled=true;
 	var request = new XMLHttpRequest();
+=======
+	var request = new XMLHttpRequest();
+    submit.value="Logging you in...";
+    submit.disabled=true;
+>>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
     //Capture the response and store it in a variable
      request.onreadystatechange = function () {
           if (request.readyState === XMLHttpRequest.DONE) {
               // Take some action
               if (request.status === 200) {
+<<<<<<< HEAD
                     window.location.reload();               
+=======
+                  submit.disabled=false;
+                  submit.value="Login";
+                  alert('Success!');
+>>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
                } else if(request.status===403 || request.status===400 ) {
                    alert('Username/Password invalid.');
                    submit.disabled=false;
@@ -50,6 +77,7 @@ var loginF1 = function () {
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password}));
     };
+<<<<<<< HEAD
 
 // var loginF2 = function() {
 //     var register = document.getElementById("register_btn");
@@ -369,3 +397,5 @@ var updateCred2 = function() {
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password, email: email}));
     };
+=======
+>>>>>>> f05836a67c278646085fa9c873dab62e09cb7554

@@ -17,7 +17,11 @@
     "generate-password": "^1.4.1",
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
+<<<<<<< HEAD
     "nodemailer": "^4.7.0",
+=======
+    "nodemailer": "^6.4.16",
+>>>>>>> f05836a67c278646085fa9c873dab62e09cb7554
     "path": "^0.12.7"
   }
 }
