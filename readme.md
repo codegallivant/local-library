@@ -1,8 +1,12 @@
 # local-library
-## :warning: Bugs
+## v0.9.8
 <!-- For check mark emoji->  :white_check_mark: -->
 ### Information
 This is a library app which can be used at school on a localhost server. The user interface is meant to be used by a librarian, so do not misunderstand this as a normal library webapp.
+
+### Pending features(essential only):
+- Add books
+- Add members
 
 ### Online Imports: 
 - Bootstrap
@@ -35,4 +39,7 @@ This is a library app which can be used at school on a localhost server. The use
  	process.env.EMAIL_AUTH_PASS='<email_password>';
 	```
 - Fill each code line with their respective values.
--You're done!
+
+### Running the program
+- Enter `node index.js` in the terminal to get the server running
+- Go to `localhost:8080` in your browser
