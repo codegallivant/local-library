@@ -4,8 +4,8 @@
 ### Information
 A library management system. Run on localhost.
 ### Pending features(essential only):
-- Add books
-- Add members
+- Add books from GUI
+- Add members from GUI
 
 ### Online Imports: 
 - Bootstrap
