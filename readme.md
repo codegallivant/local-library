@@ -2,8 +2,7 @@
 ## v0.9.8
 <!-- For check mark emoji->  :white_check_mark: -->
 ### Information
-This is a library app which can be used at school on a localhost server. The user interface is meant to be used by a librarian.
-
+A library management system. Run on localhost.
 ### Pending features(essential only):
 - Add books
 - Add members
