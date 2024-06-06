@@ -7,32 +7,43 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var nodemailer = require('nodemailer');
 var generator = require('generate-password');
-var http = require('http');
 var formidable = require('formidable');
 var fs = require('fs');
-var config = require('./config');
+var config = require('./config2');
+
 
 var pool = mysql.createConnection({
     user: 'root',
     host: 'localhost',
-    database: 'Book Library App',
+    database: 'local-library',
     port: '3306',
     password: process.env.DATABASE_PASSWORD
 });
 
-var transporter = nodemailer.createTransport({
-    service: process.env.EMAIL_SERVICE,
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
     auth: {
         user: process.env.EMAIL_AUTH_USER,
-        pass: process.env.EMAIL_AUTH_PASS
+        pass: process.env.EMAIL_PASS
     }
 });
+
+async function send(emailaddress, subjectcontent, textcontent) {
+    const result = await transporter.sendMail({
+        from: process.env.EMAIL_AUTH_USER,
+        to: emailaddress,
+        subject: subjectcontent,
+        text: textcontent
+    });
+
+    console.log(JSON.stringify(result, null, 4));
+}
 
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(session({
-    secret: 'SomeRandomSecretValue',
+    secret: process.env.SESSION_SECRET,
     cookie: {
         maxAge: 1000 * 60 * 10
     } //maxAge: 10 minutes
@@ -261,21 +272,14 @@ app.post('/send-password_email', function(req, res) {
                     numbers: true
                 });
                 var hashedPassword=hash(password, salt);
-                var mailOptions = {
-                  from: process.env.EMAIL_AUTH_USER,
-                  to: email.toString(),
-                  subject: 'Your password',
-                  text: "Following is the new password for your account '"+req.body.username+"': '"+password+"' "
-                };
+                send(email.toString(), 
+                "Your password reset request", 
+                "Following is the new password for your account '"+req.body.username+"': '"+password+"' "
+                );
+            
+                console.log(JSON.stringify(result, null, 4));
 
-                transporter.sendMail(mailOptions, function(error, info){
-                  if (error) {
-                    console.log(error);
-                  } else {
-                    console.log('Email sent: ' + info.response);
-                  }
-                });
-
+                console.log(password);
                 pool.query("UPDATE `librarians` SET password = '"+hashedPassword+"' WHERE username = '"+req.body.username+"'", function(err, result, field) {
                     if(err) {
                         res.send(err);
