@@ -9,7 +9,7 @@ var nodemailer = require('nodemailer');
 var generator = require('generate-password');
 var formidable = require('formidable');
 var fs = require('fs');
-var config = require('./config2');
+var config = require('./config');
 
 
 // var pool = mysql.createConnection({
