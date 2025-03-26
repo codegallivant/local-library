@@ -12,11 +12,18 @@ var fs = require('fs');
 var config = require('./config2');
 
 
+// var pool = mysql.createConnection({
+//     user: 'root',
+//     host: 'localhost',
+//     database: 'local-library',
+//     port: '3306',
+//     password: process.env.DATABASE_PASSWORD
+// });
 var pool = mysql.createConnection({
-    user: 'root',
-    host: 'localhost',
-    database: 'local-library',
-    port: '3306',
+    user: process.env.DATABASE_USER,
+    host: process.env.DATABASE_HOST,
+    database: process.env.DATABASE_NAME,
+    port: process.env.DATABASE_HOST_PORT,
     password: process.env.DATABASE_PASSWORD
 });
 
@@ -45,8 +52,8 @@ app.use(bodyParser.json());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     cookie: {
-        maxAge: 1000 * 60 * 10
-    } //maxAge: 10 minutes
+        maxAge: 1000 * 60 * 30
+    } //maxAge: 30 minutes
 }));
 
 var loggedIn = function(req) {
@@ -411,11 +418,13 @@ app.post('/create-member', function(req,res) {
         res.status(403).send();
         return
     }
-    pool.query("INSERT INTO `members` ('member_name') VALUES (?)",[req.body.name], function(err,result,field) {
+    pool.query("INSERT INTO `members` (`member_name`) VALUES (?)",[req.body.name], function(err,result,field) {
         if(err) {
             res.send(err);
+            console.log(err);
         } else {
             res.send(result);
+            console.log(result);
         }
     });
 });
@@ -434,16 +443,21 @@ app.post('/delete-member', function(req,res) {
     });
 });
 
-app.post('/create-book', function(req,res) {
+app.post('/add-book', function(req, res) {
     if(!loggedIn(req)) {
         res.status(403).send();
         return
     }
-    pool.query("INSERT INTO `books` ('book_name', 'TotalQuantity')", [req.body.name,req.body.quantity], function(err,result,field) {
-        if(err) {
-            res.send(err);
+    var totalQuantity = req.body.totalQuantity;
+    var bookName = req.body.bookName;
+    pool.query("INSERT INTO `books`(`BookName`, `Issued`, `TotalQuantity`, `QuantityLeft`) VALUES(?,?,?,?)", [bookName, 0, totalQuantity, totalQuantity], function(err, field, result) {
+        if (err) {
+            res.status(500).send(err.toString());
+            console.log("ERROR:");
+            console.log(err.toString());
         } else {
-            res.send(result);
+            res.status(200).send("Book successfully added");
+            console.log("Book successfully added");
         }
     });
 });
@@ -453,7 +467,7 @@ app.post('/delete-book', function(req,res) {
         res.status(403).send();
         return
     }
-    pool.query("DELETE FROM `books` WHERE `id`=?",[req.body.identityId], function(err,result,field) {
+    pool.query("DELETE FROM `books` WHERE `id`=?",[req.body.bookId], function(err,result,field) {
         if(err) {
             res.send(err);
         } else {
@@ -588,7 +602,7 @@ app.get('/ui/pace/pace-1.0.2/themes/:colorName/:fileName', function(req, res) {
     res.sendFile(path.join(__dirname, 'ui/pace/pace-1.0.2/themes/', req.params.colorName, '/', req.params.fileName));
 });
 
-var server = app.listen(8080, function() {
+var server = app.listen(3000, function() {
     var port = server.address().port;
     console.log('App listening at http://localhost:%s', port);
 

@@ -3,7 +3,7 @@
                     <div class="card-body fadeIn wow">
                         <h1 style="font-size: 8em;">
                             <span style="font-family: monospace;">BOOKS</span> 
-                            <button class="btn btn-outline-light" style="width:200px;">Add</button>
+                            <button class="btn btn-outline-light" style="width:200px;" onclick="addBookModal();">Add</button>
                         </h1>
                         <br>
                     </div>
@@ -39,16 +39,19 @@
                 </div>
                 <div class="card bg-light" style="opacity:0.95; height:80vh;">
                     <div class="card-body" >
-                        <form onsubmit="return false;">
                             <div class = "row">
                                 <div class = "col-2">
                                     <hr>
+                                    <form onsubmit="return false;">
                                     <p>Search by Member ID:</p>
                                     <input type="number" placeholder="Member ID" id="idsearchbox">
                                     <button id="search" class="btn btn-secondary">Search</button>
+                                    </form>
                                     <hr>
+                                    <form onsubmit="return false;">
                                     <p>Search by Member Name:</p>
                                     <input type="text" placeholder="Member Name" id="namesearchbox">
+                                    </form>
                                     <br>
                                     <!--<hr>
                                         <button class="btn btn-secondary" id="recalc">Reload</button>-->
@@ -57,13 +60,14 @@
                                     <hr>
                                     <button class="btn btn-secondary" id="clearall">Clear</button>
                                     <hr>
+                                    <form onsubmit="return false;">
                                     <p>Add new member:</p>
                                     <input type="text" placeholder="Member Name" id="memberaddbox">
-                                    <button id="memberaddbutton" class="btn btn-secondary">Add</button>
+                                    <button id="memberaddbutton" class="btn btn-secondary" onclick="addMember(document.getElementById('memberaddbox').value)">Add</button>
+                                    </form>
                                     <hr>
                                 </div>
-                        </form>
-                        <div id="MemberInfo" class="col-10" style="overflow: auto; height:70vh"></div>
+                            <div id="MemberInfo" class="col-10" style="overflow: auto; height:70vh"></div>
                         <script>
                             document.getElementById("search").addEventListener("click", function(){
                               document.getElementById("namesearchbox").value = "";

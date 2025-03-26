@@ -242,6 +242,25 @@ var loadMember = function(id, name) {
     }));
 };
 
+var addMember = function(memberName) {
+    request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if(request.status == 200) {
+            alert("Member added.");
+        } else if(request.status == 403) {
+            alert("403 - Forbidden");
+        } else {
+            alert("Member could not be added.");
+        }
+    }
+    request.open('POST', '/create-member', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify( {
+        name: memberName
+    }))
+    loadMember(null,"");
+}
+
 
 // var loadSubClasses = function(grade) {
 //     var request = new XMLHttpRequest();

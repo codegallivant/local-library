@@ -1,3 +1,63 @@
+function addBookModal() {
+    var content = 
+`
+<p>Book Name</p>
+<input type = 'text' id='addBookName'>
+
+<p>Quantity</p>
+<input type = 'text' id='addBookQuantity'>
+`
+    var bookModal = newModal(`Add book`, content, `<button class="btn btn-primary" onclick="addBook();">Add</button>`, "xl");
+    bookModal.toggle();
+}
+
+function addBook() {
+    var bookName = document.getElementById('addBookName').value;
+    var totalQuantity = document.getElementById('addBookQuantity').value;
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                console.log("Book successfully added");
+            } else if(request.status===403) {
+                alert("403 - Forbidden");
+            } else {
+                alert("Book could not be added");
+            }
+        }
+    };
+    request.open('POST', '/add-book', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({
+        bookName: bookName,
+        totalQuantity: totalQuantity
+    }));
+    loadBooks(document.getElementById("bookIdBox").value, document.getElementById("bookNameBox").value);
+    loadMember(null,"");
+};
+
+function deleteBook(bookId) {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                console.log("Book successfully deleted");
+            } else if(request.status===403) {
+                alert("403 - Forbidden");
+            } else {
+                alert("Book could not be deleted");
+            }
+        }
+    };
+    request.open('POST', '/delete-book', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({
+        bookId: bookId,
+    }));
+    loadBooks(document.getElementById("bookIdBox").value, document.getElementById("bookNameBox").value);
+};
+
+
 function loadBooks(identityId, identityName, checkEmpty) {
     "use strict";
     var request = new XMLHttpRequest();
@@ -109,7 +169,7 @@ var bookInfo = function(bookID, bookName, Issued, TotalQuantity, QuantityLeft, s
 <tr>
 <th>Borrow ID</th>
 <th>Member ID</th> 
-<th>Days due:</th>
+<th>Days due (since 7 days)</th>
 <th>Borrowing Date</th>  
 <!--<th>Returning Date</th>-->
 </tr>
@@ -130,7 +190,7 @@ var bookInfo = function(bookID, bookName, Issued, TotalQuantity, QuantityLeft, s
                     }
                     content += `</table>`;
                 }
-                var bookModal = newModal(`Book Details (ID - ${bookID})`, content, `<button class="btn btn-primary">Edit</button>`, "xl");
+                var bookModal = newModal(`Book Details (ID - ${bookID})`, content, `<button class="btn btn-primary" onclick="deleteBook(${bookID});">Delete</button>`, "xl");
                 bookModal.toggle();
             }  else if(request.status===403) {
                 alert("403 - Forbidden");
